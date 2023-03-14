@@ -9,7 +9,7 @@ class MetasploitModule < Msf::Post
     super(update_info(info,
       'Name'          => 'Account_peristence',
       'Description'   => %q{
-        modules can give you a very strong foothold and stay hidden. first the module will create a new user then add it to the administrators group then hide the created user from the windows boot login logo and the module will remove the windows malware signature every boot.
+        this module can give you a very strong footing and stay hidden. first the module will create a new user then add it to administrators group then hide the user created from login boot windows logo and module will remove windows malware signature every boot and module will modify registry to change administrator folder permissions so you can read write . then allow all users to create service with system account.
       },
       'License'       => MSF_LICENSE,
       'Author'        => 'alwansec@',
