@@ -9,4 +9,7 @@ this module can give you a very strong footing and stay hidden. first the module
 
 ```
 git clone https://github.com/wooxsec/secretaccount-persistence-metasploit-module
+cd secretaccount-persistence-metasploit-module
+mv persistence_accounts.rb ~/.msf4/modules/post/
 ```
+go to metasploit then reload module with reload command
