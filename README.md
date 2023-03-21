@@ -8,7 +8,19 @@ this module can give you a very strong footing and stay hidden.
 
 # What do modules do?
 
-first the module will create a user(secret:P@ssw0rd123) with the Administrator group then hide it from the login menu by megedit registry
+first the module will create a user(secret:P@ssw0rd123) with the Administrator group then hide it from the login menu by edit registry
+
+![Screnshoot](https://github.com/wooxsec/secretaccount-persistence-metasploit-module/blob/main/2.png)
+
+![Screnshoot](https://github.com/wooxsec/secretaccount-persistence-metasploit-module/blob/main/3.png)
+
+![Screnshoot](https://github.com/wooxsec/secretaccount-persistence-metasploit-module/blob/main/4.png)
+
+![Screnshoot](https://github.com/wooxsec/secretaccount-persistence-metasploit-module/blob/main/5.png)
+
+
+
+
 
 # Installation
 
