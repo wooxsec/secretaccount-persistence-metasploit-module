@@ -1,36 +1,85 @@
-# secretaccount-persistence-metasploit-module
-Module Post Metasploit Framework
 
-This module contains several post exploitation persistence tricks.
-this module can give you a very strong footing and stay hidden.
+# Modul Metasploit: secretaccount-persistence
 
-![Screnshoot](https://github.com/wooxsec/secretaccount-persistence-metasploit-module/blob/main/1.png)
+Modul ini merupakan bagian dari *Post Exploitation* di Metasploit Framework.
 
-# What do modules do?
+Modul ini berisi berbagai teknik persistensi pasca-eksploitasi yang dapat memberikan akses kuat dan tetap tersembunyi di sistem target.
 
-first the module will create a user(secret:P@ssw0rd123) with the Administrator group then hide it from the login menu by edit registry.
-we can see the users we created with the undetected module in "other users" so they are slightly invisible and remain hidden
+![Tangkapan Layar](https://github.com/wooxsec/secretaccount-persistence-metasploit-module/blob/main/1.png)
 
-![Screnshoot](https://github.com/wooxsec/secretaccount-persistence-metasploit-module/blob/main/2.png)
+---
 
-we upload the payload with the default architecture with msfvenom but it's not detected wow? the module has removed all Windows Defender malware signatures so performing subsequent operations will not wake up Windows Defender
+## Apa yang dilakukan oleh modul ini?
 
-![Screnshoot](https://github.com/wooxsec/secretaccount-persistence-metasploit-module/blob/main/3.png)
-
-with low privilege we can create service with local system privilege and can build backdoor chain
-
-![Screnshoot](https://github.com/wooxsec/secretaccount-persistence-metasploit-module/blob/main/4.png)
-
-without UAC bypass we can already read shared Administrator and login to system easily via SMB with tools like psexec/smbexec and similar like wmiexec
-
-![Screnshoot](https://github.com/wooxsec/secretaccount-persistence-metasploit-module/blob/main/5.png)
-
-# Installation
+Pertama, modul akan membuat akun pengguna baru dengan username dan password:
 
 ```
+Username: secret  
+Password: P@ssw0rd123
+```
+
+Akun ini dimasukkan ke dalam grup **Administrator**, kemudian **disembunyikan dari menu login** dengan memodifikasi registry Windows.
+
+Meskipun tersembunyi, akun ini masih dapat terlihat melalui "Other Users", sehingga agak tersembunyi namun tetap aktif.
+
+![Tangkapan Layar](https://github.com/wooxsec/secretaccount-persistence-metasploit-module/blob/main/2.png)
+
+---
+
+## Bypass Windows Defender
+
+Payload diunggah menggunakan arsitektur default dari `msfvenom`, namun **tidak terdeteksi oleh Windows Defender**.
+
+Mengapa? Karena modul ini menghapus semua signature malware dari Windows Defender, sehingga operasi selanjutnya tidak memicu alarm Defender.
+
+![Tangkapan Layar](https://github.com/wooxsec/secretaccount-persistence-metasploit-module/blob/main/3.png)
+
+---
+
+## Eskalasi Hak Akses
+
+Dengan hak akses terbatas, kita masih bisa membuat **service dengan hak Local System**, dan membangun **rantai backdoor**.
+
+![Tangkapan Layar](https://github.com/wooxsec/secretaccount-persistence-metasploit-module/blob/main/4.png)
+
+---
+
+## Akses SMB Tanpa Bypass UAC
+
+Tanpa harus melakukan bypass UAC, kita sudah bisa membaca folder Administrator yang dibagikan (shared), dan login ke sistem melalui SMB menggunakan tools seperti:
+
+- `psexec`
+- `smbexec`
+- `wmiexec`
+
+![Tangkapan Layar](https://github.com/wooxsec/secretaccount-persistence-metasploit-module/blob/main/5.png)
+
+---
+
+## Instalasi
+
+```bash
 git clone https://github.com/wooxsec/secretaccount-persistence-metasploit-module
 cd secretaccount-persistence-metasploit-module
 sudo mv persistence_nighmares.rb /usr/share/metasploit-framework/exploits/windows/local/
-
 ```
-run msfconsole in terminal and reload module using command reload_all
+
+---
+
+## Menjalankan Modul
+
+Buka terminal dan jalankan Metasploit:
+
+```bash
+msfconsole
+```
+
+Kemudian muat ulang semua modul agar modul ini terdeteksi:
+
+```bash
+reload_all
+```
+
+---
+
+💀 Modul ini hanya untuk **tujuan edukasi & pengujian keamanan legal**. Jangan gunakan untuk aktivitas ilegal.
